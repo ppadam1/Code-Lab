@@ -6,6 +6,8 @@ Site: https://www.indionetwork.com/
 - Test user name: ttesting1
 - Test user password: 123456
 
+- I have Included some screenshots of the work I did for Indio Software Network 
+
 ### Account Information Page
 ![Account Information Page](https://github.com/ppadam1/code-lab/blob/main/IndioSoftwareNetwork/Images/Account-Information-Page.png)
 
