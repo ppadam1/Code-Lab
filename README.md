@@ -1,6 +1,5 @@
 # code-lab
-repo for experimenting with new tech
+Repo displaying past works and experimentation with new technologies
 
 Resources:
-- The Joy of JavaScript By Luis Atencio (https://www.manning.com/books/the-joy-of-javascript)
 - Crafting Interpreters By Robert Nystrom (https://craftinginterpreters.com/)
