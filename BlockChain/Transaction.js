@@ -7,6 +7,7 @@ class Transaction {
     transactionId = '';
     timestamp = Date.now();
     feePercent = 0.6;
+    sign = '';
 
     constructor(sender, recipient, funds = 0.0, description = 'Generic') {
         this.sender = sender;
@@ -14,6 +15,7 @@ class Transaction {
         this.funds = Number(funds);
         this.description = description;
         this.transactionId = this.calculateHash();
+        this.sign = this.generateSignature();
     }
 
     displayTransaction() {
@@ -38,4 +40,3 @@ Object.assign(
 )
 
 const tx = new Transaction('praneeshpadam@gmail.com', 'mail.praneesh', 100.223);
-console.log(tx);
