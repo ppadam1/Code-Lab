@@ -1,51 +1,49 @@
 'use strict';
 
 class Transaction {
-    sender = '';
-    recipient = '';
-    funds = 0.0;
-    #feePercent = 0.6;
+    transactionId = '';
+    timestamp = Date.now();
+    feePercent = 0.6;
 
-    constructor(sender, recipient, funds = 0.0) {
+    constructor(sender, recipient, funds = 0.0, description = 'Generic') {
         this.sender = sender;
         this.recipient = recipient;
         this.funds = Number(funds);
+        this.description = description;
+        this.transactionId = this.calculateHash();
     }
 
     displayTransaction() {
-        return `Transaction from ${this.sender} to ${this.recipient} for $${this.funds}`;
+        return `Transaction ${this.description} from ${this.sender} for $${this.recipient} for ${this.funds}`;
     }
 
     get netTotal() {
-        return Transaction.precisionRound(this.funds * this.#feePercent, 2);
+        return Transaction.precisionRound(this.funds * this.feePercent, 2);
     }
 
-    static #precisionRound(number, precision) {
+    static precisionRound(number, precision) {
         const factor = Math.pow(10, precision);
         return Math.round(number * factor) / factor;
     }
 }
 
-class HashTransaction extends Transaction {
-    transactionId;
-    constructor(sender, recipient, funds = 0.0) {
-        super(sender, recipient, funds);
-        this.transactionId = this.calculateHash();
-    }
-
+const HasHash = keys => ({
     calculateHash() {
-        const data = [this.sender, this.recipient, this.funds].join('');
+        const data = keys.map(f => this[f]).join('');
         let hash = 0, i = 0;
         while (i < data.length) {
             hash = ((hash << 5) - hash + data.charCodeAt(i++)) << 0;
         }
         return hash ** 2;
     }
+});
 
-    displayTransaction() {
-        return `Transaction ID: ${this.transactionId}: ${super.displayTransaction()}`
-    }
-}
+Object.assign(
+    Transaction.prototype,
+    HasHash(['timestamp', 'sender', 'recipient', 'funds']),
+    HasSignature(['sender', 'recipient', 'funds']),
+    HasValidation()
+)
 
-const tx = new HashTransaction('test', 'test1', 1023.2312);
-console.log(tx.displayTransaction());
+const tx = new Transaction('luis@tjoj.com', 'luke@tjoj.com', 10);
+console.log(tx);
