@@ -1,7 +1,7 @@
 'use strict';
 
-const HasHash = require('/home/praneesh/Projects/code-lab/BlockChain/mixins/HasHash.js');
-const HasSignature = require('/home/praneesh/Projects/code-lab/BlockChain/mixins/HasSignature.js');
+const HasHash = require('./mixins/HasHash.js');
+const HasSignature = require('./mixins/HasSignature.js');
 
 class Transaction {
     transactionId = '';
@@ -40,3 +40,4 @@ Object.assign(
 )
 
 const tx = new Transaction('praneeshpadam@gmail.com', 'mail.praneesh', 100.223);
+console.log(tx);
