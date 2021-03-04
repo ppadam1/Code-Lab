@@ -1,5 +1,8 @@
 'use strict';
 
+const HasHash = require('/home/praneesh/Projects/code-lab/BlockChain/mixins/HasHash.js');
+const HasSignature = require('/home/praneesh/Projects/code-lab/BlockChain/mixins/HasSignature.js');
+
 class Transaction {
     transactionId = '';
     timestamp = Date.now();
@@ -27,22 +30,11 @@ class Transaction {
     }
 }
 
-const HasHash = keys => ({
-    calculateHash() {
-        const data = keys.map(f => this[f]).join('');
-        let hash = 0, i = 0;
-        while (i < data.length) {
-            hash = ((hash << 5) - hash + data.charCodeAt(i++)) << 0;
-        }
-        return hash ** 2;
-    }
-});
-
 Object.assign(
     Transaction.prototype,
     HasHash(['timestamp', 'sender', 'recipient', 'funds']),
     HasSignature(['sender', 'recipient', 'funds']),
-    HasValidation()
+    // HasValidation()
 )
 
 const tx = new Transaction('luis@tjoj.com', 'luke@tjoj.com', 10);
