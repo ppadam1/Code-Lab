@@ -37,5 +37,5 @@ Object.assign(
     // HasValidation()
 )
 
-const tx = new Transaction('luis@tjoj.com', 'luke@tjoj.com', 10);
+const tx = new Transaction('praneeshpadam@gmail.com', 'mail.praneesh', 100.223);
 console.log(tx);
