@@ -3,10 +3,10 @@
 This web application is used to be provide access to education resources for Canadians remotely.
 
 Site: https://www.indionetwork.com/
+- Primary Tech Stack: PHP, JavaScript, CSS, ASP.NET, Postgres SQL, Moodle
 - Test user name: ttesting1
 - Test user password: 123456
-
-- I have Included some screenshots of the work I did for Indio Software Network 
+- I have included some screenshots of the work I did for Indio Software Network 
 
 ### Account Information Page
 ![Account Information Page](https://github.com/ppadam1/code-lab/blob/main/IndioSoftwareNetwork/Images/Account-Information-Page.png)

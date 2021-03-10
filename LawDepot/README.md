@@ -3,6 +3,7 @@
 Lawdepot is a do it yourself legal documents company, It provides users with the ability to create legal documents online, while also providing services to manage and extensively edit those documents.
 
 Sites: 
+- Primary Tech Stack: SCSS, JavaScript, jQuery, Vue.JS, PHP, SQL, ASP.NET
 - https://www.lawdepot.com/
 - https://www.doculaw.com/
 - Lawdepot Test User Name: ppadam@lawdepot.com
