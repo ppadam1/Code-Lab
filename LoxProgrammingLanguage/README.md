@@ -1,5 +1,5 @@
-# Lox Programming Language
+# Lox Programming Language (Work In Progress)
 
-- Dynamically Typed, Garbage Collected, Interpreted Language build using C
+- Dynamically Typed, Object Oriented, Garbage Collected, Interpreted Language build using C and Java
 
 - References: https://craftinginterpreters.com/
